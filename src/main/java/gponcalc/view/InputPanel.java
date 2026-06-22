@@ -1,10 +1,13 @@
 package gponcalc.view;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.UnaryOperator;
 import javafx.collections.FXCollections;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -99,6 +102,19 @@ public class InputPanel extends GridPane {
 
     public Button getBtnCalcular() {
         return btnCalcular;
+    }
+
+    public Map<String, Control> getCampoMap() {
+        Map<String, Control> map = new HashMap<>();
+        map.put("potenciaTransmissao", txtPotenciaTransmissao);
+        map.put("sensibilidadeReceptor", txtSensibilidadeReceptor);
+        map.put("distanciaEnlace", txtDistanciaEnlace);
+        map.put("atenuacaoEspecifica", txtAtenuacaoEspecifica);
+        map.put("divisaoSplitters", cmbDivisaoSplitters);
+        map.put("perdaConectores", txtPerdaConectores);
+        map.put("perdaFusoes", txtPerdaFusoes);
+        map.put("margemSeguranca", txtMargemSeguranca);
+        return map;
     }
 
     public Double getPotenciaTransmissao() {
