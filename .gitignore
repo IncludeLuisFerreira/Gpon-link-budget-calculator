@@ -17,6 +17,8 @@
 *.tar.gz
 *.rar
 
+.superpowers/
+
 # Gradle
 .gradle/
 build/
