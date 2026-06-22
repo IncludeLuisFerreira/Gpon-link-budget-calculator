@@ -4,6 +4,7 @@ import gponcalc.exception.ParametrosInsuficientesException;
 import gponcalc.model.CalculadoraLinkBudget;
 import gponcalc.model.ParametrosRede;
 import gponcalc.model.ValidadorLimites;
+import gponcalc.view.AlertaVisual;
 import gponcalc.view.InputPanel;
 import gponcalc.view.ResultPanel;
 
@@ -56,6 +57,7 @@ public class MainController {
             if (!alertas.isEmpty()) {
                 resultPanel.exibirAlertas(alertas);
             }
+            AlertaVisual.aplicarAlertas(alertas, inputPanel.getCampoMap());
 
         } catch (ParametrosInsuficientesException e) {
             resultPanel.exibirErro("Erro: " + e.getMessage());
