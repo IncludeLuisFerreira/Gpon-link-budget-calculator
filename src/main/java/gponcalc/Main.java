@@ -1,11 +1,14 @@
 package gponcalc;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import gponcalc.controller.MainController;
+import gponcalc.model.CalculadoraLinkBudget;
+import gponcalc.model.ValidadorLimites;
+import gponcalc.view.InputPanel;
+import gponcalc.view.ResultPanel;
 
 public class Main extends Application {
 
@@ -13,15 +16,15 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         BorderPane root = new BorderPane();
 
-        Label inputLabel = new Label("Painel de Entrada");
-        inputLabel.setAlignment(Pos.CENTER);
-        BorderPane.setAlignment(inputLabel, Pos.CENTER);
-        root.setLeft(inputLabel);
+        InputPanel inputPanel = new InputPanel();
+        ResultPanel resultPanel = new ResultPanel();
 
-        Label resultLabel = new Label("Resultados");
-        resultLabel.setAlignment(Pos.CENTER);
-        BorderPane.setAlignment(resultLabel, Pos.CENTER);
-        root.setCenter(resultLabel);
+        CalculadoraLinkBudget calculadora = new CalculadoraLinkBudget();
+        ValidadorLimites validador = new ValidadorLimites();
+        new MainController(inputPanel, resultPanel, calculadora, validador);
+
+        root.setLeft(inputPanel);
+        root.setCenter(resultPanel);
 
         Scene scene = new Scene(root, 900, 600);
         primaryStage.setTitle("Calculadora de Link Budget GPON");
