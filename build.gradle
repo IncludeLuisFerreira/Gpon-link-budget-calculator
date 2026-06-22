@@ -27,9 +27,3 @@ test {
 application {
     mainClass = 'gponcalc.Main'
 }
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
-}
